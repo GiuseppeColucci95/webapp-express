@@ -3,7 +3,18 @@ const connection = require('../database/db');
 
 //index route
 function index(req, res) {
-  res.send("Index route");
+
+  //sql query
+  const sql = `SELECT * FROM movies`;
+
+  //perform sql query
+  connection.query(sql, (err, results) => {
+    //handle errors
+    if (err) return res.status(500).json({ error: err.message });
+
+    //return results
+    res.send(results);
+  });
 }
 
 //show route
