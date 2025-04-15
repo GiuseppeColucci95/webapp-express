@@ -10,3 +10,6 @@ function index(req, res) {
 function show(req, res) {
   res.send(`Show route for id: ${req.params.id}`);
 }
+
+//exports module
+module.exports = { index, show };

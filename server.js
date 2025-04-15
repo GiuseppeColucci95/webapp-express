@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+//router import
+const moviesRouter = require('./routers/moviesRouter');
+
 //import connection
 const connection = require('./database/db');
 
@@ -14,15 +17,8 @@ app.get('/', (req, res) => {
   res.send("Welcome to our Server!");
 });
 
-//index route
-app.get('/movies', (req, res) => {
-  res.send("Index route!");
-});
-
-//show route
-app.get('/movies/:id', (req, res) => {
-  res.send(`Show route for id: ${req.params.id}`);
-});
+//router middleware
+app.use('/movies', moviesRouter);
 
 //server start listening
 app.listen(PORT, () => {
