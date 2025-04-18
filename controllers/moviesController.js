@@ -67,7 +67,7 @@ function storeReview(req, res) {
     if (err) return res.status(500).json({ error: err.message });
 
     //return success
-    res.status(201).json({ message: "Insert completed!", reviewId: results.insertId });
+    res.status(201).json({ message: "Review insert correctly!", reviewId: results.insertId });
   });
 }
 
