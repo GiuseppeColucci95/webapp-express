@@ -53,10 +53,10 @@ function storeReview(req, res) {
 
   //variables to use
   const id = Number(req.params.id);
-  const { name, vote, text } = req.body;
+  const { name, vote, review } = req.body;
   const created_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
   const updated_at = created_at;
-  const values = [id, name, vote, text, created_at, updated_at];
+  const values = [id, name, vote, review, created_at, updated_at];
 
   //sql query to do
   const sql = `INSERT INTO reviews (movie_id, name, vote, text, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`;
